@@ -1,6 +1,6 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str):
-        '''
+        """
         First, we initialize dictionary with every character in the string and set value to -1
         Then, we set the start position to be -1 and start count as 0
         When we loop through the string, we record the current index and compare to the start index 
@@ -20,7 +20,7 @@ class Solution:
 
 
 
-        '''
+        """
         res = {c: -1 for c in s}
         start = -1
         max_length = 0
@@ -34,7 +34,7 @@ class Solution:
 
 def main():
     solver = Solution()
-    tests = [{"s": "abcabcbb", "result": 3}, {'s':'pwwkew', 'result': 3}]
+    tests = [{"s": "abcabcbb", "result": 3}, {"s": "pwwkew", "result": 3}]
     i = 0
     for test in tests:
         i += 1
