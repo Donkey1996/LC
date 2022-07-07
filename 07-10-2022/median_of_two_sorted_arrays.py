@@ -25,12 +25,10 @@ class Solution:
         else:
             # if even number, return 1/2 of n/2, n/2 + 1 elements
             return (
-                1
-                / 2
-                * (
+                (
                     self.findKthSmallest(nums1, nums2, l // 2)
                     + self.findKthSmallest(nums1, nums2, l // 2 - 1)
-                )
+                )/2
             )
 
     def findKthSmallest(self, nums1, nums2, k):
@@ -39,7 +37,7 @@ class Solution:
         if len(nums2) == 0:
             return nums1[k]
         index1, index2 = len(nums1) // 2, len(nums2) // 2
-        median1, median2 = nums1[index1 // 2], nums2[index2 // 2]
+        median1, median2 = nums1[index1], nums2[index2]
 
         if index1 + index2 < k:
             if median1 > median2:
@@ -62,7 +60,7 @@ class Solution:
 def main():
     solver = Solution()
     tests = [
-        {"nums1": [1, 2], "nums2": [3, 4], "result": 2.5},
+        {"nums1": [1, 3], "nums2": [2], "result": 2},
         {
             "nums1": [
                 2,
