@@ -25,11 +25,9 @@ class Solution:
         else:
             # if even number, return 1/2 of n/2, n/2 + 1 elements
             return (
-                (
-                    self.findKthSmallest(nums1, nums2, l // 2)
-                    + self.findKthSmallest(nums1, nums2, l // 2 - 1)
-                )/2
-            )
+                self.findKthSmallest(nums1, nums2, l // 2)
+                + self.findKthSmallest(nums1, nums2, l // 2 - 1)
+            ) / 2
 
     def findKthSmallest(self, nums1, nums2, k):
         if len(nums1) == 0:
