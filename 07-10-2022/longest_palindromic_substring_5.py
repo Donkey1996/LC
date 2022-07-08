@@ -3,6 +3,8 @@
 Medium
 
 Given a string s, return the longest palindromic substring in s.
+
+Use a dynamic programming approach, where dp[i][j] represents whether s[i:j] is a palindrome
 '''
 
 
