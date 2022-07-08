@@ -27,6 +27,7 @@ def test1():
     print(res)
     assert 1 == 1
 
+
 def main():
     pytest.main(["-q", "paint_house_III_1473.py"])
 
