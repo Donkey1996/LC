@@ -6,9 +6,6 @@ Given a string s, return the longest palindromic substring in s.
 '''
 
 
-from nbformat import current_nbformat
-from sympy import im
-
 
 class Solution:
     #This approach takes O(n^2) time complexity, O(n^2) space complexity, where n is the length of s
@@ -40,13 +37,13 @@ class Solution:
         max_length = 0
         for i in range(len(s)):
             for j in range(len(s)):
-                if self.isPalindrome(s[i:j]):
+                if self.isPalindrome(s[i:j+1]):
                     # print(s[i:j])
                     current_length = j-i+1
                     if current_length > max_length:
                         max_length = current_length
                         max_start = i
-                        max_end = j
+                        max_end = j+1
         # print(max_length)
         return s[max_start: max_end]
 
@@ -64,7 +61,7 @@ class Solution:
 
 def main():
     solver = Solution()
-    print(solver.longestPalindrome2('abbacddd'))
+    print(solver.longestPalindrome2('abb'))
     print(solver.longestPalindrome('abbacddd'))
     print(solver.isPalindrome('aba'))
 
