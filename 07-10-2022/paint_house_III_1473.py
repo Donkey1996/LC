@@ -21,14 +21,15 @@ class Solution:
     def minCost(self, houses: List[int], cost: List[List[int]], m: int, n: int, target: int) -> int:
         return 0
     
-def test1():
-    solver = Solution()
-    res = solver.minCost(houses=[], cost=[[]], m=1, n=1, target=1)
-    print(res)
-    assert 1 == 1
+    def test1(self):
+        res = self.minCost(houses=[], cost=[[]], m=1, n=1, target=1)
+        print(res)
+        assert 1 == 1
 
 
 def main():
+    solver = Solution()
+    solver.test1()
     pytest.main(["-q", "paint_house_III_1473.py"])
 
 
