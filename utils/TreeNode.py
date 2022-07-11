@@ -1,4 +1,3 @@
-from platform import node
 from typing import List, Optional
 import pytest
 
@@ -14,11 +13,8 @@ def list_to_tree(vals: List[int]) -> TreeNode:
         return None
     
     n = len(vals)
-    if (n+1)%2 != 0:
-        raise ValueError('wrong number of values for list')
-    
     def _get_root(idx: int) -> TreeNode:
-        if idx > n or vals[idx] == None:
+        if idx >= n or vals[idx] == None:
             return None
         root = TreeNode(vals[idx])
         root.left = _get_root(2*idx+1)
