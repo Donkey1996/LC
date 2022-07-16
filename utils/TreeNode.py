@@ -1,6 +1,7 @@
 from typing import List, Optional
 import pytest
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -11,17 +12,19 @@ class TreeNode:
 def list_to_tree(vals: List[int]) -> TreeNode:
     if not List:
         return None
-    
+
     n = len(vals)
+
     def _get_root(idx: int) -> TreeNode:
         if idx >= n or vals[idx] == None:
             return None
         root = TreeNode(vals[idx])
-        root.left = _get_root(2*idx+1)
-        root.right = _get_root(2*idx+2)
+        root.left = _get_root(2 * idx + 1)
+        root.right = _get_root(2 * idx + 2)
         return root
 
     return _get_root(0)
+
 
 def test_tree_node():
     node_left = TreeNode(val=8, left=None, right=None)
@@ -30,8 +33,9 @@ def test_tree_node():
     assert root.left.val == 8
     assert root.right.val == 1818
 
+
 def test_tree():
-    vals = [1,2,3,None,5,None,4]
+    vals = [1, 2, 3, None, 5, None, 4]
     root = list_to_tree(vals)
     assert root.left.val == 2
     assert root.right.val == 3
@@ -42,7 +46,8 @@ def test_tree():
 
 
 def main():
-    pytest.main(['-q', 'TreeNode.py'])
+    pytest.main(["-q", "TreeNode.py"])
+
 
 if __name__ == "__main__":
     main()
