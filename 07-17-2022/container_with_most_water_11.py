@@ -16,6 +16,8 @@ Notice that you may not slant the container.
 
  
 """
+
+
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         n = len(height)
@@ -29,9 +31,9 @@ class Solution:
         ## use a while loop will be better and O(n)
         # we compare height[i] and height[j] at each iteration
         # we move the pointer only for the lower 'wall'
-        
+
         while i <= j:
-            max_area = max(max_area, min(height[i], height[j])*(j-i))
+            max_area = max(max_area, min(height[i], height[j]) * (j - i))
             if height[i] <= height[j]:
                 i += 1
             else:
@@ -42,8 +44,8 @@ class Solution:
 def main():
     solver = Solution()
     tests = [
-        {"height": [1,1], "result": 1},
-        {"height": [1,8,6,2,5,4,8,3,7], "result": 49},
+        {"height": [1, 1], "result": 1},
+        {"height": [1, 8, 6, 2, 5, 4, 8, 3, 7], "result": 49},
     ]
     i = 0
     for test in tests:
