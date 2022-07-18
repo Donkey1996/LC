@@ -9,7 +9,7 @@ from utils.TreeNode import TreeNode, list_to_tree
 
 
 class Solution:
-    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
         self._find(root, res)
         return res
@@ -33,8 +33,8 @@ def main():
         print(root.right.val)
         print(root.left.left.val)
         solver = Solution()
-        print(solver.preorderTraversal(root))
-        assert solver.preorderTraversal(root) == test["traversal"]
+        print(solver.postorderTraversal(root))
+        assert solver.postorderTraversal(root) == test["traversal"]
         print(f"Passed test case {i}")
 
 
