@@ -9,7 +9,7 @@ from utils.TreeNode import TreeNode, list_to_tree
 
 
 class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
         res = []
         self._find(root, res)
         return res
@@ -17,12 +17,12 @@ class Solution:
     def _find(self, root, res):
         if root:
             self._find(root.left, res)
-            res.append(root.val)
             self._find(root.right, res)
+            res.append(root.val)
 
 
 def main():
-    tests = [{"vals": [1, 2, 3, 4], "traversal": [4, 2, 1, 3]}]
+    tests = [{"vals": [1, 2, 3, 4], "traversal": [4, 2, 3, 1]}]
     i = 0
     for test in tests:
         i += 1
@@ -33,8 +33,8 @@ def main():
         print(root.right.val)
         print(root.left.left.val)
         solver = Solution()
-        print(solver.inorderTraversal(root))
-        assert solver.inorderTraversal(root) == test["traversal"]
+        print(solver.preorderTraversal(root))
+        assert solver.preorderTraversal(root) == test["traversal"]
         print(f"Passed test case {i}")
 
 
