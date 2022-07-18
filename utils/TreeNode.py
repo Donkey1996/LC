@@ -10,7 +10,7 @@ class TreeNode:
 
 
 def list_to_tree(vals: List[int]) -> TreeNode:
-    if not List:
+    if not vals:
         return None
 
     n = len(vals)
