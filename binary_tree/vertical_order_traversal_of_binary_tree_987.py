@@ -27,6 +27,7 @@ class Solution:
     """
     BFS
     """
+
     def verticalTraversal(self, root: TreeNode) -> List[List[int]]:
         # g = defaultdict(list)
         # q = deque([(root, 0)]) #node, index
@@ -50,22 +51,18 @@ class Solution:
                 node, index = q.pop(0)
                 temp_g[index].append(node.val)
                 if node.left:
-                    q.append((node.left, index-1))
+                    q.append((node.left, index - 1))
                 if node.right:
-                    q.append((node.right, index+1))
+                    q.append((node.right, index + 1))
             for index in temp_g:
                 g[index].extend(sorted(temp_g[index]))
         return [g[i] for i in sorted(g)]
-                
-
-            
-
 
 
 def main():
     tests = [
-        {"vals": [3, 9, 20, None, None, 15, 7], "traversal": [[9],[3,15],[20],[7]]},
-        {"vals": [1,2,3,4,5,6,7], "traversal": [[4],[2],[1,5,6],[3],[7]]}
+        {"vals": [3, 9, 20, None, None, 15, 7], "traversal": [[9], [3, 15], [20], [7]]},
+        {"vals": [1, 2, 3, 4, 5, 6, 7], "traversal": [[4], [2], [1, 5, 6], [3], [7]]},
     ]
 
     i = 0

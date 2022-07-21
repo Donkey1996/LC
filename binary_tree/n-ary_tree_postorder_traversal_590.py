@@ -2,6 +2,8 @@
 similar to 589
 """
 from typing import List
+
+
 class Solution:
     def postorder(self, root) -> List[int]:
         res = []
