@@ -44,10 +44,11 @@ def test_tree():
     assert root.left.right.val == 5
     assert root.right.right.val == 4
 
-
 def main():
     pytest.main(["-q", "TreeNode.py"])
-
+    vals = [1,2,3,4,5,None,6,7,None,None,None,None,8]
+    root = list_to_tree(vals)
+    print(root.right.right.val)
 
 if __name__ == "__main__":
     main()
