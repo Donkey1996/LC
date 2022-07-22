@@ -28,6 +28,7 @@ class Solution:
         if root:
             res.append(root.val)
             self.search(root.left, res)
+
             self.search(root.right, res)
         else:
             res.append("Null")
