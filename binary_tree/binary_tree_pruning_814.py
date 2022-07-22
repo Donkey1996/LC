@@ -20,6 +20,8 @@ class Solution:
     def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
             return None
+        if not self.is_in_tree(root):
+            return None
         if not self.is_in_tree(root.left):
             root.left = None
         if not self.is_in_tree(root.right):
@@ -36,19 +38,3 @@ class Solution:
                 or self.is_in_tree(root.right, x)
             )
         return False
-
-
-def main():
-    tests = [{"vals": [1, None, 0, 0, 1], "result": [1, None, 0, None, 1]}]
-    i = 0
-    for test in tests:
-        i += 1
-        vals = test["vals"]
-        root = list_to_tree(vals)
-        solver = Solution()
-        assert solver.pruneTree(root) == test["result"]
-        print(f"Passed test case {i}")
-
-
-if __name__ == "__main__":
-    main()
