@@ -10,7 +10,6 @@ from utils.TreeNode import TreeNode, list_to_tree
 """
 129. Sum Root to Leaf Numbers
 Medium
-
 You are given the root of a binary tree containing digits from 0 to 9 only.
 
 Each root-to-leaf path in the tree represents a number.
