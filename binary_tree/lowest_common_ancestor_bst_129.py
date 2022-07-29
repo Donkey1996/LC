@@ -30,14 +30,14 @@ class Solution:
     If root.val < small then both node p and q belong to the right subtree, go to right by root = root.right.
     Now, small <= root.val <= large the current root is the LCA between q and p.
 
-    
     '''
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        
+        large, small = max(p.val, q.val), min(p.val, q.val)
+        while root:
+            if root.val > large:
+                root = root.left
+            elif root.val < small:
+                root = root.right
+            else:
+                return root
 
-    def is_in_tree(self, root, p):
-        if root is None:
-            return False
-        if root == p:
-            return True
-        return self.is_in_tree(root.left, p) or self.is_in_tree(root.right, p)
