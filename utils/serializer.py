@@ -1,6 +1,6 @@
 from turtle import left
 from yaml import serialize
-from TreeNode import TreeNode
+from .TreeNode import TreeNode
 from collections import deque
 
 
