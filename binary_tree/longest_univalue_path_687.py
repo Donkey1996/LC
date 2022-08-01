@@ -1,7 +1,6 @@
 import sys
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 from collections import deque
-
 sys.path.insert(0, "/home/jerrymengxiao/dev/LC")
 
 from utils.TreeNode import TreeNode, list_to_tree
@@ -17,14 +16,16 @@ This path may or may not pass through the root.
 
 The length of the path between two nodes is represented by the number of edges between them.
 """
-
-
 class Solution:
+    """
+    https://leetcode.com/problems/longest-univalue-path/discuss/108142/Python-Simple-to-Understand
+    学
+    """
     def longestUnivaluePath(self, root: Optional[TreeNode]) -> int:
         self.longest = 0
         self.traverse(root)
         return self.longest
-
+        
     def traverse(self, root):
         if root is None:
             return 0
@@ -38,14 +39,13 @@ class Solution:
             r = r + 1
         else:
             r = 0
-        self.longest = max(self.longest, l + r)
+        self.longest = max(self.longest, l+r)
         return max(l, r)
-
 
 def main():
     tests = [
-        {"vals": [1, 4, 5, 4, 4, None, 5], "result": 2},
-        {"vals": [5, 4, 5, 1, 1, None, 5], "result": 2},
+        {"vals": [1,4,5,4,4,None,5], "result": 2},
+        {"vals": [5,4,5,1,1,None,5], "result": 2},
         {"vals": [], "result": 0},
     ]
 
