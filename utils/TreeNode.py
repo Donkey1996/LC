@@ -8,6 +8,9 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return "TreeNode({})".format(self.val)
+
 
 def list_to_tree(vals: List[int]) -> TreeNode:
     if not vals:
