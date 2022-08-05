@@ -1,6 +1,7 @@
 import sys
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 from collections import deque
+
 sys.path.insert(0, "/home/jerrymengxiao/dev/LC")
 
 from utils.TreeNode import TreeNode, list_to_tree
@@ -16,14 +17,17 @@ return the number of paths where the sum of the values along the path equals tar
 The path does not need to start or end at the root or a leaf, but it must go downwards 
 (i.e., traveling only from parent nodes to child nodes).
 """
+
+
 class Solution:
-    def pathSum(sefl, root: Optional[TreeNode]) -> int:
+    def pathSum(self, root: Optional[TreeNode]) -> int:
         pass
-    
+
+
 def main():
     tests = [
-        {"vals": [10,5,-3,3,2,None,11,3,-2,None,1], "result": 3},
-        {"vals": [5,4,8,11,None,13,4,7,2,None,None,5,1], "result": 3},
+        {"vals": [10, 5, -3, 3, 2, None, 11, 3, -2, None, 1], "result": 3},
+        {"vals": [5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1], "result": 3},
         {"vals": [], "result": 0},
     ]
 
