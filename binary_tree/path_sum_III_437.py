@@ -2,6 +2,8 @@ import sys
 from typing import Any, Callable, Dict, List, Optional, Tuple, Union
 from collections import deque
 
+from sklearn.compose import TransformedTargetRegressor
+
 sys.path.insert(0, "/home/jerrymengxiao/dev/LC")
 
 from utils.TreeNode import TreeNode, list_to_tree
@@ -20,15 +22,45 @@ The path does not need to start or end at the root or a leaf, but it must go dow
 
 
 class Solution:
-    def pathSum(self, root: Optional[TreeNode]) -> int:
-        pass
+    def pathSum(self, root: Optional[TreeNode], targetSum) -> int:
+        if root is None:
+            return 0
+        return (
+            self.pathSum(root.left, targetSum)
+            + self.dfs(root, targetSum)
+            + self.pathSum(root.right, targetSum)
+        )
+
+    def dfs(self, root, target):
+        # root to node sum
+        if root is None:
+            return 0
+        res = 0
+        q = deque([[root, root.val]])
+        while q:
+            cur, cur_sum = q.popleft()
+            if cur_sum == target:
+                res += 1
+            if cur.left:
+                q.append([cur.left, cur_sum + cur.left.val])
+            if cur.right:
+                q.append([cur.right, cur_sum + cur.right.val])
+        return res
 
 
 def main():
     tests = [
-        {"vals": [10, 5, -3, 3, 2, None, 11, 3, -2, None, 1], "result": 3},
-        {"vals": [5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1], "result": 3},
-        {"vals": [], "result": 0},
+        {
+            "vals": [10, 5, -3, 3, 2, None, 11, 3, -2, None, 1],
+            "targetSum": 8,
+            "result": 3,
+        },
+        {
+            "vals": [5, 4, 8, 11, None, 13, 4, 7, 2, None, None, 5, 1],
+            "targetSum": 22,
+            "result": 3,
+        },
+        {"vals": [], "targetSum": 0, "result": 0},
     ]
 
     i = 0
@@ -37,8 +69,8 @@ def main():
         vals = test["vals"]
         root = list_to_tree(vals)
         solver = Solution()
-        print(solver.longestUnivaluePath(root))
-        assert solver.longestUnivaluePath(root) == test["result"]
+        print(solver.pathSum(root, test["targetSum"]))
+        assert solver.pathSum(root, test["targetSum"]) == test["result"]
         print(f"Passed test case {i}")
 
 
